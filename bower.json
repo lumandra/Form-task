@@ -1,0 +1,37 @@
+{
+  "name": "Form-task",
+
+  "homepage": "https://github.com/lumandra/Form-task",
+
+  "authors": [
+    "Lumandra <lumandra7@gmail.com>"
+  ],
+
+  "description": "Form on bootstrap",
+
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  },
+  "license": "MIT",
+
+  "private": true
+
+}
+
+
+
+
+
