@@ -15,6 +15,7 @@
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="styles/bootstrap.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -27,8 +28,64 @@
 
 
 
+    <form target="myIFR">
+      <iframe name="myIFR" style="display: none"></iframe>
+      <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input type="text" class="form-control" id="FirstName" placeholder="First Name" name="'FirstName">
+      </div>
+      <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input type="text" class="form-control" id="LastName" placeholder="Last Name" nameid="LastName">
+      </div>
+      <div class="form-group">
+        <label for="Phone">Phone</label>
+        <input type="text" class="form-control" id="Phone" placeholder="Phone" name="Phone">
+      </div>
+      <div class="form-group">
+        <label for="AboutMe">About me</label>
+        <textarea class="form-control" id="AboutMe" rows="3" name="AboutMe"> </textarea>
+      </div>
+      <div class="form-group">
+        <label for="Gender">Gender</label>
+        <select class="form-control" id="Gender" name="Gender">
+          <option></option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="Country">Country</label>
+        <select class="form-control" id="Country" name="Country">
+          <option></option>
+          <option>England</option>
+          <option>Russia</option>
+          <option>German</option>
+          <option>France</option>
+          <option>Italia</option>
+          <option>Poland</option>
+          <option>Spain</option>
+          <option>Czech Republic</option>
+          <option>Bulgaria</option>
+          <option>Norway</option>
+        </select>
+      </div>
 
+      <div class="form-group">
+        <label for="Email1">Email address</label>
+        <input type="text" class="form-control" id="Email1" placeholder="Email" name="Email">
+      </div>
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" id="Password" placeholder="Password" name="Password">
+      </div>
 
+      <div class="form-group">
+        <label for="Avatar">Avatar input</label>
+        <input type="file" id="Avatar" name="Avatar" >
+      </div>
+      <button type="submit" class="btn btn-default" onclick="validate(this.form)">Submit</button>
+    </form>
 
 
 
@@ -37,6 +94,9 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <!-- select2 -->
+    <script src="/bower_components/select2/dist/js/select2.min.js"></script>
 
     <!-- build:js scripts/plugins.js -->
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
