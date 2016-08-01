@@ -16,13 +16,11 @@ var handleFileSelect = function(evt) {
     reader.onload = function(readerEvt) {
       var binaryString = readerEvt.target.result;
       finObject.Avatar = btoa(binaryString);
-      };
+    };
     reader.readAsBinaryString(file);
   }
 
 };
-
-
 
 if (window.File && window.FileReader && window.FileList && window.Blob) {
   document.getElementById('Avatar').addEventListener('change', handleFileSelect, false);
@@ -39,7 +37,7 @@ function showError(container, errorMessage) {
   msgElem.className = "error-message";
   msgElem.innerHTML = errorMessage;
   container.appendChild(msgElem);
-  }
+}
 
 function resetError(container) {
    container.className = '';
@@ -51,11 +49,29 @@ function resetError(container) {
 function validate(form) {
   errorVal = 0;
   var elems = form.elements;
-  var r = /^\w+@\w+\.\w{2,4}$/i;
+  var rEmail = /^\w+@\w+\.\w{2,4}$/i;
+  var rLetters = /^[a-z]{0,20}$/i;
+  var rNumbers = /^\d{0,14}$/;
+
 
   resetError(elems.FirstName.parentNode);
-  if (!elems.FirstName.value) {
+    if (!elems.FirstName.value) {
     showError(elems.FirstName.parentNode, ' Please enter First Name');
+    errorVal = 1;
+  } else if (!rLetters.test(elems.FirstName.value)) {
+    showError(elems.FirstName.parentNode, ' Only letters should be');
+    errorVal = 1;
+  }
+
+  resetError(elems.LastName.parentNode);
+  if (!rLetters.test(elems.LastName.value)) {
+    showError(elems.LastName.parentNode, ' Only letters should be');
+    errorVal = 1;
+  }
+
+  resetError(elems.Phone.parentNode);
+  if(!rNumbers.test(elems.Phone.value)) {
+    showError(elems.Phone.parentNode, ' Only numbers should be');
     errorVal = 1;
   }
 
@@ -69,13 +85,10 @@ function validate(form) {
   if (!elems.Email.value) {
     showError(elems.Email.parentNode, ' Enter Email');
     errorVal = 1;
-  } else if (!r.test(elems.Email.value)) {
+  } else if (!rEmail.test(elems.Email.value)) {
     showError(elems.Email.parentNode, ' Wrong Email');
     errorVal = 1;
   }
-
-  console.log('errorval ' + errorVal);
-/*  console.log('obj: ' + finObject.ava);*/
 
   if (errorVal == 0) {
     finObject.FirstName = elems.FirstName.value;
@@ -86,14 +99,10 @@ function validate(form) {
     finObject.Country = elems.Country.value;
     finObject.Email = elems.Email.value;
     finObject.Password = elems.Password.value;
-    /*for (var i in finObject){
-      console.log( i + ' : ' + finObject[i]);
-    }*/
+
     var strJson = JSON.stringify(finObject);
     console.log(strJson);
   }
-
-
 }
 
 
